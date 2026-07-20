@@ -2,10 +2,6 @@
 
 A NumPy-only implementation of the K-Means clustering algorithm. Includes a side-by-side comparison against scikit-learn's `KMeans`.
 
-## Contents
-
-- [`notebook/kmeans_from_scratch.ipynb`](notebook/kmeans_from_scratch.ipynb) — commented, step-by-step implementation
-
 ## Algorithm overview
 
 K-Means partitions `n` points into `k` clusters by alternating two steps until convergence:
@@ -28,7 +24,7 @@ Clustering quality is measured with **WCSS (Within-Cluster Sum of Squares)**, al
 
 ## Dataset
 
-A small toy dataset of 9 customers, each with two features:
+A small dataset of 9 customers, each with two features:
 
 | Feature       | Description              |
 |---------------|---------------------------|
@@ -43,18 +39,12 @@ The goal is to group customers into `k = 3` clusters.
 - A comparison run using scikit-learn's `KMeans` (`k-means++` initialization, multiple restarts via `n_init`).
 - A scatter plot visualizing the final clusters and centroids.
 
-## Notes / possible improvements
+## Notes 
 
 - The manual implementation initializes centroids by slicing the raw data (`X[2:k+2]`) rather than using random or `k-means++` initialization — this is simpler for learning purposes but more sensitive to a poor starting point.
 - `max_iters` is set low (2) in the manual version to make each step easy to trace by hand; increasing it (or adding a tolerance-based stopping rule instead of exact equality) would make convergence more robust.
 - Next steps for practicing further: implement `k-means++` initialization from scratch, and use the elbow method / silhouette score to choose `k` automatically.
 
-## Setup
-
-```bash
-pip install -r requirements.txt
-jupyter notebook notebook/kmeans_from_scratch.ipynb
-```
 
 ## Requirements
 
